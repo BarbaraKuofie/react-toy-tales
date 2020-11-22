@@ -20,9 +20,12 @@ class ToyCard extends Component {
    this.props.handleLikes(updatedToy)
  }
 
- handleDelete = (props, event) => {
-  debugger
- }
+//  handleDelete = (toy) => {
+//   this.setState(prevState => {
+//     const updatedToys = prevState.toys.filter(toy => toy.name !== toy);
+//     return { updatedToys};
+// });
+//  }
 
  
 
@@ -33,7 +36,7 @@ class ToyCard extends Component {
         <img src={this.props.toy.image} alt={this.props.toy.name} className="toy-avatar" />
         <p>{this.props.toy.likes} Likes </p>
         <button onClick={this.handleLikes} className="like-btn">Like {'<3'}</button>
-        <button onClick={this.handleDelete} data-id={this.props.toy.id} className="del-btn">Donate to GoodWill</button>
+        <button onClick={() => this.props.donateToy(this.props.toy.id)} data-id={this.props.toy.id} className="del-btn">Donate to GoodWill</button>
       </div>
     );
   }
